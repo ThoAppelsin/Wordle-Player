@@ -16,7 +16,7 @@ You may then run the script and let it do its thing: `python bot.py`
 
 `wordslist.txt` contains all the 5-letter words considered as valid by the Wordle English.
 
-On the initial run, for each pair of words `wordA` and `wordB` in that list, the script simulates what the outcome (i.e. the 5 colors) would be when we make the guess `wordA` if the secret answer was `wordB`. This takes about 8 minutes to compute, but we store this as a 12972⨯12972 8-bit unsigned integer matrix (takes about 160MB) to reuse on the subsequent runs of the script.
+On the initial run, for each pair of words `wordA` and `wordB` in that list, the script simulates what the outcome (i.e. the 3 colors for each of the 5 letters) would be when we make the guess `wordA` if the secret answer was `wordB`. This takes about 8 minutes to compute, but we store this as a 12972⨯12972 8-bit unsigned integer matrix (takes about 160MB) to reuse on the subsequent runs of the script.
 
 The script then just picks the guess that would leave us with the least amount of candidates, considering the worst possible responses (responses that yield the maximum amount of candidates for a given guess) from Wordle. In other words, the script makes its guess pessimistically, expecting the worst from Wordle.
 
